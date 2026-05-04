@@ -33,6 +33,15 @@ class Aquatic < Formula
       "local RELEASES_FILE=\"#{libexec}/RELEASES.md\""
   end
 
+  def caveats
+    <<~EOS
+      The 'slideshow' command requires ffmpeg built with libfreetype (drawtext filter).
+      The default Homebrew ffmpeg does not include this. To fix:
+        brew uninstall ffmpeg
+        brew install homebrew-ffmpeg/ffmpeg/ffmpeg
+    EOS
+  end
+
   test do
     assert_match "aquatic #{version}", shell_output("#{bin}/aquatic --version")
   end

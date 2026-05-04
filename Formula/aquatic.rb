@@ -1,10 +1,10 @@
 class Aquatic < Formula
   desc "Modular macOS CLI toolkit for video processing, Git tagging, and data parsing"
   homepage "https://github.com/1varunvc/aquatic"
-  url "https://github.com/1varunvc/aquatic/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "2b1f51b1b62a196bbe31c5dddaea6c8667c3711d3ba2e2f170f2b6cdf37536c6"
+  url "https://github.com/1varunvc/aquatic/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "1200409fabd08188ef8341db3414f64ceea67d719d4d9a685a497f9116fe57b0"
   license "GPL-3.0-or-later"
-  version "0.1.0"
+  version "0.1.1"
 
   depends_on :macos
   depends_on "bash"
@@ -18,6 +18,7 @@ class Aquatic < Formula
 
     libexec.install Dir["scripts/*.sh"]
     libexec.install Dir["scripts/*.txt"]
+    (libexec/"lib").install Dir["scripts/lib/*.sh"]
     (libexec/"dev").install Dir["scripts/dev/*.js"]
 
     libexec.install "VERSION"
@@ -28,9 +29,6 @@ class Aquatic < Formula
     inreplace bin/"aquatic",
       'CURRENT_VERSION=$(cat "$DIR/VERSION")',
       "CURRENT_VERSION=$(cat \"#{libexec}/VERSION\")"
-    inreplace bin/"aquatic",
-      'local RELEASES_FILE="$DIR/RELEASES.md"',
-      "local RELEASES_FILE=\"#{libexec}/RELEASES.md\""
   end
 
   def caveats

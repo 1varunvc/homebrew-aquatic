@@ -1,0 +1,25 @@
+name: Audit Formula
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Audit formula
+        run: brew audit --strict Formula/aquatic.rb
+
+      - name: Install formula
+        run: |
+          brew install --build-from-source Formula/aquatic.rb
+          aquatic --version
+

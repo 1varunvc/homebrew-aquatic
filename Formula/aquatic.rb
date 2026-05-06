@@ -1,7 +1,7 @@
 class Aquatic < Formula
   desc "Modular macOS CLI toolkit for video processing, Git tagging, and data parsing"
   homepage "https://github.com/1varunvc/aquatic"
-  url "https://github.com/1varunvc/aquatic/archive/refs/tags/v0.1.1.tar.gz"
+  url "https://github.com/1varunvc/aquatic/releases/download/v0.1.1/aquatic-0.1.1.tar.gz"
   sha256 "1200409fabd08188ef8341db3414f64ceea67d719d4d9a685a497f9116fe57b0"
   license "GPL-3.0-or-later"
   version "0.1.1"
